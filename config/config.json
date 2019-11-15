@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "review11",
+    "host": "db",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "reviews_test",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "host": "db",
+    "database": "review12",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

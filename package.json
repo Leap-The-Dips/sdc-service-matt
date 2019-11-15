@@ -1,0 +1,63 @@
+{
+    "name": "ratings_and_reviews",
+    "version": "1.0.0",
+    "description": "A mock ebay Ratings and Reviews page",
+    "engines": {
+        "node": "12.x"
+    },
+    "main": "index.js",
+    "config": {
+        "port": "3004"
+    },
+    "scripts": {
+        "start": "node server/index.js",
+        "start:dev": "nodemon server/index.js",
+        "build": "webpack --mode production",
+        "webpack-dev": "webpack --watch",
+        "createDB": "sequelize db:create",
+        "seedDB": "npm run createDB && node ./server/db/seeders/seed.js",
+        "test": "NODE_ENV=test jest --forceExit --detectOpenHandles",
+        "pretest": "NODE_ENV=test npm run seedDB",
+        "docker-build": "npm run seedDB && npm start"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ],
+        "verbose": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rpt16Quarks/vaishu-service"
+    },
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@babel/runtime": "^7.6.2",
+        "babel-preset-react": "^6.24.1",
+        "eslint": "^6.5.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "express": "^4.17.1",
+        "mysql2": "^1.7.0",
+        "nodemon": "^1.19.2",
+        "query-string": "^6.8.3",
+        "react": "^16.10.1",
+        "react-dom": "^16.10.1",
+        "react-router-dom": "^5.1.2",
+        "sequelize": "^5.19.2",
+        "styled-components": "^4.4.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.2",
+        "@babel/preset-env": "^7.6.2",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.6",
+        "babel-preset-airbnb": "^4.0.1",
+        "jest": "^24.9.0",
+        "sequelize-cli": "^5.5.1",
+        "supertest": "^4.0.2",
+        "webpack": "^4.41.0",
+        "webpack-cli": "^3.3.9"
+    }
+}
