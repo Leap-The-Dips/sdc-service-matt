@@ -1,6 +1,7 @@
 const express = require('express');
 const service = require('./controllers.js');
 const bodyParser = require('body-parser');
+// const util = require('util');
 
 const app = express();
 express.json();
@@ -37,9 +38,24 @@ app.get('/reviews', (req, res) => {
 
 app.post('/reviews', (req, res) => {
   console.log('Reviews post body: ', req.body);
+  service.createReview(req.body, (err, id) => {
+    if (err) {
+      res.sendStatus(400);
+      return;
+    }
+    res.sendStatus(200);
+  })
 });
 
 app.put('/reviews', (req, res) => {
+  console.log('Reviews put body: ', req.body);
+  service.updateReview(req.body, (err, id) => {
+    if (err) {
+      res.sendStatus(400);
+      return;
+    }
+    res.sendStatus(200);
+  })
 });
 
 app.delete('/reviews', (req, res) => {

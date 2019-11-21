@@ -56,6 +56,28 @@ module.exports = {
       .catch((err) => { console.log(err); callback(err); });
   }, 
 
+  createReview: (body, callback) => {
+    db.Review.create(body)
+    .then((res) => {
+      console.log('New review created at ID: ', res.id);
+      callback(null, res);
+    })
+    .catch((err) => { callback(err) });
+  },
+
+  updateReview: (body, callback) => {
+    db.Review.update(body, {
+      where: {
+        id: body.id,
+      }
+    })
+    .then((res) => {
+      console.log('Updated review at ID: ', res.id);
+      callback(null, res);
+    })
+    .catch((err) => { callback(err) });
+  },
+
   deleteReview: (reviewID, callback) => {
     db.Review.destroy({
       where: {
