@@ -1,10 +1,14 @@
 const express = require('express');
 const service = require('./controllers.js');
+const bodyParser = require('body-parser');
+// const util = require('util');
 
 const app = express();
 express.json();
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ratings', (req, res) => {
   service.getAllRatings(req.query.prod_id, (err, ratings) => {
@@ -30,6 +34,41 @@ app.get('/reviews', (req, res) => {
     }
     res.status(200).send(ratings);
   });
+});
+
+app.post('/reviews', (req, res) => {
+  console.log('Reviews post body: ', req.body);
+  service.createReview(req.body, (err, id) => {
+    if (err) {
+      res.sendStatus(400);
+      return;
+    }
+    res.sendStatus(200);
+  })
+});
+
+app.put('/reviews', (req, res) => {
+  console.log('Reviews put body: ', req.body);
+  service.updateReview(req.body, (err, id) => {
+    if (err) {
+      res.sendStatus(400);
+      return;
+    }
+    res.sendStatus(200);
+  })
+});
+
+app.delete('/reviews', (req, res) => {
+  //need reviewID from client (INT)
+  console.log('Delete review: ', req.body.id);
+
+  service.deleteReview(req.body.id, (err, rows) => {
+    if (err) {
+      res.sendStatus(400);
+      return;
+    }
+    res.sendStatus(200);
+  })
 });
 
 module.exports = app;

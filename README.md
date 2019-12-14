@@ -18,3 +18,45 @@ From within the root directory
 npm install -g webpack
 npm install nodemon
 npm install babel-loader
+
+## CRUD API
+
+### Get all reviews for a product
+GET - /reviews?prod_id=${id}
+
+### Get ratings for a product
+GET - /ratings?prod_id=${id}
+
+### Create a new review
+POST - /reviews
+Body: {
+  id: integer,
+  ratings: integer,
+  title: string,
+  description: string,
+  report_abuse: boolean,
+  created_on: date time
+  productId: integer,
+  isProductProp1Good: boolean
+  isProductProp2Good: boolean,
+  isProductProp3Good: boolean,
+}
+
+### Update a review
+PUT - /reviews
+Body: {
+  id: integer,
+  ratings: integer,
+  title: string,
+  description: string,
+  report_abuse: boolean,
+  created_on: date time
+  productId: integer,
+  isProductProp1Good: boolean
+  isProductProp2Good: boolean,
+  isProductProp3Good: boolean,
+}
+
+### Delete a review
+DELETE - /reviews
+Body: { id: ${reviewID}}
