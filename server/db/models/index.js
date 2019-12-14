@@ -4,8 +4,8 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../../../config/config.json')[env];
 console.log('MSQL HOST: ', process.env.MYSQL_HOST);
 let sequelize = new Sequelize(config.database, config.username, config.password, {
-  host: process.env.MYSQL_HOST,
-  dialect: 'mysql',
+  host: '127.0.0.1',
+  dialect: 'postgres',
   operatorsAliases: false
 });
 

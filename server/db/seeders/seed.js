@@ -6,8 +6,9 @@ const feedBackSampleData = require('./feedBackSampleData.js');
 const imageSampleData = require('./imageSampleData.js');
 
 db.sequelize
-  .query('SET FOREIGN_KEY_CHECKS = 0', null, { raw: true })
-  .then(() => db.sequelize.sync({ force: true }))
+  // .query('SET FOREIGN_KEY_CHECKS = 0', null, { raw: true })
+  // .then(() => db.sequelize.sync({ force: true }))
+  .sync({ force: true })
   .then(() => db.User.bulkCreate(UserMockData))
   .then(() => db.Product.bulkCreate(productSampleData))
   .then(() => db.Review.bulkCreate(reviewsSampleData))
