@@ -13,7 +13,7 @@
         "start": "node server/index.js",
         "start:dev": "nodemon server/index.js",
         "build": "webpack --mode production",
-        "webpack-dev": "webpack --watch",
+        "webpack-dev": "webpack --mode development --watch",
         "createDB": "sequelize db:create",
         "seedDB": "npm run createDB && node ./server/db/seeders/seed.js",
         "test": "NODE_ENV=test jest --forceExit --detectOpenHandles",

@@ -15,11 +15,11 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "host": "db",
-    "database": "review12",
-    "dialect": "mysql",
+    "username": "postgres",
+    "password": "spartans84",
+    "database": "reviews",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
     "operatorsAliases": false
   }
 }

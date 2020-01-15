@@ -32,7 +32,7 @@ const Reviews = ({reviewDetails, productCondition, pagingAndSorting, noOfRatings
         <Wrapper key={rec.id}>
           <ReviewSection>
             <StarRatings avgRatings={rec.ratings} starName={'star'+rec.id} starSize={'small'}></StarRatings>
-            <div>by <StyledDescription isLink={true}>{rec.user.name}</StyledDescription></div>
+            <div>by <StyledDescription isLink={true}>{rec.name}</StyledDescription></div>
             <ReviewDate>{date}</ReviewDate>
           </ReviewSection>
           <ReviewContent>
