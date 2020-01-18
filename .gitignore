@@ -4,5 +4,9 @@ node_modules
 package-lock.json
 *.DS_Store
 .env
-./public/app.bundle.js
 seedData.txt
+newrelic.js
+config/config.json
+httperf_content
+newrelic_agent.log
+public/app.bundle.js

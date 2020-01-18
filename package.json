@@ -40,6 +40,7 @@
         "eslint-plugin-import": "^2.18.2",
         "express": "^4.17.1",
         "mysql2": "^1.7.0",
+        "newrelic": "^6.2.0",
         "nodemon": "^1.19.2",
         "pg": "^7.14.0",
         "query-string": "^6.8.3",

@@ -46,7 +46,7 @@ module.exports = {
     //     productId
     //   }
     // });
-    const p1 = db.sequelize.query(`SELECT t1.id, t1.ratings, t1.title, t1.description, t1.report_abuse, t1.created_on, t1.\"productId\", t1.name, \"ReviewFeedbacks\".\"isHelpful\" FROM (select reviews.id, reviews.ratings, reviews.title, reviews.description, reviews.report_abuse, reviews.created_on, reviews.\"productId\", reviews.\"userId\", users.name from reviews INNER JOIN users ON \"reviews\".\"userId\" = \"users\".\"id\" where \"reviews\".\"productId\" = 7 order by created_on desc offset ${pagingAndSorting.offset} rows limit ${pagingAndSorting.limit}) AS t1 INNER JOIN \"ReviewFeedbacks\" ON \"t1\".\"userId\" = \"ReviewFeedbacks\".\"userId\";`);
+    const p1 = db.sequelize.query(`SELECT t1.id, t1.ratings, t1.title, t1.description, t1.report_abuse, t1.created_on, t1.\"productId\", t1.name, \"ReviewFeedbacks\".\"isHelpful\" FROM (select reviews.id, reviews.ratings, reviews.title, reviews.description, reviews.report_abuse, reviews.created_on, reviews.\"productId\", reviews.\"userId\", users.name from reviews INNER JOIN users ON \"reviews\".\"userId\" = \"users\".\"id\" where \"reviews\".\"productId\" = ${productId} order by created_on desc offset ${pagingAndSorting.offset} rows limit ${pagingAndSorting.limit}) AS t1 INNER JOIN \"ReviewFeedbacks\" ON \"t1\".\"userId\" = \"ReviewFeedbacks\".\"userId\";`);
     const p2 = db.Product.findOne({
       attributes: ['seller', 'productCondition'],
       where: {
