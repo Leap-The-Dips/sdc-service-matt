@@ -12,7 +12,7 @@ function write() {
     let rating = Math.floor(Math.random() * 5);
     let title = faker.commerce.productName();
     let description = faker.lorem.sentences(Math.floor(Math.max(Math.random() * 5, 1)));
-    let product_id = Math.floor(Math.max(Math.random() * 500, 1));
+    let product_id = Math.floor(Math.max(Math.random() * 5000, 1));
     let user_id = Math.floor(Math.max(Math.random() * 100, 1));
     let report_abuse = Math.random > 0.5;
     let isProductProp1Good = Math.random > 0.5;
